@@ -6,11 +6,28 @@ import App from "./App";
 import "@fontsource/inter/700.css"; // Specify weight
 
 import reportWebVitals from "./reportWebVitals";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Error from "./page/Error";
+import TrackList from "./page/TrackList";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <Error />,
+  },
+  {
+    path: "tracklist",
+    element: <TrackList />,
+    errorElement: <Error />,
+  },
+]);
+
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

@@ -5,13 +5,27 @@ import FBIcon from "../asset/image/icon-fb.svg";
 
 import "../App.css";
 import { Button, Flex, Input } from "antd";
-
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function Home() {
+  const navigate = useNavigate();
+
+  const [code, setCode] = useState("");
+
+  const enter = () => {
+    console.log(code);
+    if (code === "minRacing") {
+      navigate("/trackList");
+    } else {
+      alert("Wrong Code");
+    }
+  };
+
   return (
     <div className="App">
-      <img src={logo} className="App-logo" alt="logo" />
+      <img src={logo} style={{ height: "100vh" }} alt="logo" />
       <div
-        style={{ marginLeft: 50, justifyContent: "center" }}
+        style={{ marginLeft: 150, justifyContent: "center" }}
         className="loginform"
       >
         <p className="title" style={{ fontFamily: "Inter", fontSize: 50 }}>
@@ -24,14 +38,21 @@ function Home() {
 
         <Flex vertical gap={12}>
           <Input
-            placeholder="Outlined"
+            value={code}
+            onChange={(e) => {
+              setCode(e.target.value);
+            }}
+            onPressEnter={enter}
+            placeholder=""
             style={{
+              fontFamily: "Inter",
               backgroundColor: "transparent",
               borderColor: "white",
               borderWidth: 3,
               borderRadius: 15,
               height: 50,
               color: "white",
+              fontSize: 20,
             }}
           />
           <Button
