@@ -2,10 +2,22 @@ import People from "../asset/image/icon-people.svg";
 import Time from "../asset/image/icon-time.svg";
 import "../App.css";
 import { Button, Flex, Input } from "antd";
+import { useNavigate } from "react-router-dom";
 
-function Track() {
+const Track = (props) => {
+  const navigate = useNavigate();
+  const { type } = props;
+  const onClick = () => {
+    if (type === 0) {
+      navigate("/playing");
+    } else {
+      navigate("/spectator");
+    }
+  };
+
   return (
     <div
+      onClick={onClick}
       style={{
         display: "flex",
         alignItems: "center",
@@ -58,6 +70,6 @@ function Track() {
       </div>
     </div>
   );
-}
+};
 
 export default Track;

@@ -9,6 +9,8 @@ import reportWebVitals from "./reportWebVitals";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Error from "./page/Error";
 import TrackList from "./page/TrackList";
+import Playing from "./page/Playing";
+import Spectator from "./page/Spectator";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -21,6 +23,16 @@ const router = createBrowserRouter([
   {
     path: "tracklist",
     element: <TrackList />,
+    errorElement: <Error />,
+  },
+  {
+    path: "playing",
+    element: <Playing />,
+    errorElement: <Error />,
+  },
+  {
+    path: "spectator",
+    element: <Spectator />,
     errorElement: <Error />,
   },
 ]);

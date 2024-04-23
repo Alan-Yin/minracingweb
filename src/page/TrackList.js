@@ -19,6 +19,7 @@ function TrackList() {
     <div
       style={{
         display: "flex",
+        height: "100vh",
         flexDirection: "column",
         backgroundColor: "#333333",
       }}
@@ -154,10 +155,7 @@ function TrackList() {
           flexWrap: "wrap",
         }}
       >
-        <Track />
-        <Track />
-        <Track />
-        <Track /> <Track /> <Track /> <Track /> <Track /> <Track /> <Track />
+        <Track type={type} />
       </div>
     </div>
   );
