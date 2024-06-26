@@ -1,25 +1,25 @@
-import React, { useContext } from 'react'
-import { Card, Form, Input, Row, Col, Button, Select } from 'antd'
-import { QosOption } from './index'
+import React, { useContext } from "react";
+import { Card, Form, Input, Row, Col, Button, Select } from "antd";
+import { QosOption } from "./index";
 
 const Subscriber = ({ sub, unSub, showUnsub }) => {
-  const [form] = Form.useForm()
-  const qosOptions = useContext(QosOption)
+  const [form] = Form.useForm();
+  const qosOptions = useContext(QosOption);
 
   // topic & QoS for MQTT subscribing
   const record = {
-    topic: 'testtopic/react',
+    topic: "test",
     qos: 0,
-  }
+  };
 
   const onFinish = (values) => {
-    sub(values)
-  }
+    sub(values);
+  };
 
   const handleUnsub = () => {
-    const values = form.getFieldsValue()
-    unSub(values)
-  }
+    const values = form.getFieldsValue();
+    unSub(values);
+  };
 
   const SubForm = (
     <Form
@@ -40,7 +40,7 @@ const Subscriber = ({ sub, unSub, showUnsub }) => {
             <Select options={qosOptions} />
           </Form.Item>
         </Col>
-        <Col span={8} offset={16} style={{ textAlign: 'right' }}>
+        <Col span={8} offset={16} style={{ textAlign: "right" }}>
           <Form.Item>
             <Button type="primary" htmlType="submit">
               Subscribe
@@ -48,7 +48,7 @@ const Subscriber = ({ sub, unSub, showUnsub }) => {
             {showUnsub ? (
               <Button
                 type="danger"
-                style={{ marginLeft: '10px' }}
+                style={{ marginLeft: "10px" }}
                 onClick={handleUnsub}
               >
                 Unsubscribe
@@ -58,9 +58,9 @@ const Subscriber = ({ sub, unSub, showUnsub }) => {
         </Col>
       </Row>
     </Form>
-  )
+  );
 
-  return <Card title="Subscriber">{SubForm}</Card>
-}
+  return <Card title="Subscriber">{SubForm}</Card>;
+};
 
-export default Subscriber
+export default Subscriber;

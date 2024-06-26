@@ -1,5 +1,5 @@
-import React from 'react'
-import { Card, Button, Form, Input, Row, Col, Select } from 'antd'
+import React from "react";
+import { Card, Button, Form, Input, Row, Col, Select } from "antd";
 
 /**
  * this demo uses EMQX Public MQTT Broker (https://www.emqx.com/en/mqtt/public-mqtt5-broker), here are the details:
@@ -10,31 +10,31 @@ import { Card, Button, Form, Input, Row, Col, Select } from 'antd'
  */
 
 const Connection = ({ connect, disconnect, connectBtn }) => {
-  const [form] = Form.useForm()
+  const [form] = Form.useForm();
   const initialConnectionOptions = {
     // ws or wss
-    protocol: 'ws',
-    host: 'broker.emqx.io',
-    clientId: 'emqx_react_' + Math.random().toString(16).substring(2, 8),
+    protocol: "ws",
+    host: "114.34.219.217",
+    clientId: "emqx_react_" + Math.random().toString(16).substring(2, 8),
     // ws -> 8083; wss -> 8084
-    port: 8083,
+    port: 1884,
     /**
      * By default, EMQX allows clients to connect without authentication.
      * https://docs.emqx.com/en/enterprise/v4.4/advanced/auth.html#anonymous-login
      */
-    username: 'emqx_test',
-    password: 'emqx_test',
-  }
+    username: "emqx_test",
+    password: "emqx_test",
+  };
 
   const handleProtocolChange = (value) => {
     form.setFieldsValue({
-      port: value === 'wss' ? 8084 : 8083,
-    })
-  }
+      port: value === "wss" ? 8084 : 8083,
+    });
+  };
 
   const onFinish = (values) => {
-    const { protocol, host, clientId, port, username, password } = values
-    const url = `${protocol}://${host}:${port}/mqtt`
+    const { protocol, host, clientId, port, username, password } = values;
+    const url = `${protocol}://${host}:${port}/mqtt`;
     const options = {
       clientId,
       username,
@@ -42,17 +42,17 @@ const Connection = ({ connect, disconnect, connectBtn }) => {
       clean: true,
       reconnectPeriod: 1000, // ms
       connectTimeout: 30 * 1000, // ms
-    }
-    connect(url, options)
-  }
+    };
+    connect(url, options);
+  };
 
   const handleConnect = () => {
-    form.submit()
-  }
+    form.submit();
+  };
 
   const handleDisconnect = () => {
-    disconnect()
-  }
+    disconnect();
+  };
 
   const ConnectionForm = (
     <Form
@@ -98,7 +98,7 @@ const Connection = ({ connect, disconnect, connectBtn }) => {
         </Col>
       </Row>
     </Form>
-  )
+  );
 
   return (
     <Card
@@ -114,7 +114,7 @@ const Connection = ({ connect, disconnect, connectBtn }) => {
     >
       {ConnectionForm}
     </Card>
-  )
-}
+  );
+};
 
-export default Connection
+export default Connection;

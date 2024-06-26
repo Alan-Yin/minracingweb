@@ -20,8 +20,8 @@ const Track = (props) => {
       onClick={onClick}
       style={{
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        alignItems: "space-between",
+        justifyContent: "space-between",
         flexDirection: "column",
         margin: 30,
         marginBottom: 0,
@@ -35,12 +35,12 @@ const Track = (props) => {
           borderRadius: 25,
         }}
       ></div>
-      <p>Track Name</p>
+      <p style={{ textAlign: "center" }}>Track Name</p>
       <div
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "space-between",
         }}
       >
         <img
@@ -48,9 +48,9 @@ const Track = (props) => {
           style={{
             height: 20,
             width: 20,
-            marginLeft: 20,
+
             borderRadius: 25,
-            paddingRight: 10,
+
             borderColor: "white",
           }}
         />
@@ -62,7 +62,7 @@ const Track = (props) => {
             width: 20,
             marginLeft: 20,
             borderRadius: 25,
-            padding: 10,
+
             borderColor: "white",
           }}
         />
